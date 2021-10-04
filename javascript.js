@@ -26,30 +26,33 @@ function iniciarPartidaConJugadores(cantidadJugadores) {
     document.jugadores = nuevosJugadores;
 }
 
-function jugarRonda() {
-    var jugadores = document.jugadores;
-    for (var numeroJugador = 0; numeroJugador < jugadores.length; numeroJugador++) {
-        lanzamientoDeRondaDelJugador(numeroJugador)
-    }
-}
 
 function lanzamientoDeRondaDelJugador(numeroJugador) {
     var numeroDeDados = document.cantidadDeDados;
-    var lanzamientos = document.cantidadDeLanzamientosPorRonda;
+    var lanzamientosPorRonda = document.cantidadDeLanzamientosPorRonda;
+    var rondaActual = docuemnt.rondaActual;
 
     var maximoDeDado = document.valorMaximoDeDado;
     var minimoDeDado = document.valorMinimoDeDado;
 
     var totalPuntosDeRonda = 0;
 
-    for (var index = 0; index < lanzamientos; index++) {
+    for (var index = 0; index < lanzamientosPorRonda; index++) {
         for (var index = 0; index < numeroDeDados; index++) {
-            var puntosDeLanzamiento = Math.random() * (maximoDeDado - minimoDeDado) + minimoDeDado;
-            totalPuntosDeRonda += puntosDeLanzamiento;
+            var puntosDeLanzamiento = Math.floor((Math.random() * maximoDeDado) + minimoDeDado);
+            if ((puntosDeLanzamiento % 2) == 0) {
+                totalPuntosDeRonda += puntosDeLanzamiento;
+            }
         }
     }
 
     document.jugadores[numeroJugador] += totalPuntosDeRonda;
+}
+
+function finalizarRonda() {
+    var rondaActual = document.rondasActual;
+    var proximaRonda = rondaActual + 1;
+    document.rondaActual = proximaRonda;
 }
 
 function encontrarGanador() {
@@ -60,6 +63,7 @@ function encontrarGanador() {
         const puntosDelJugadorActual = array[index];
         if (puntosDelJugadorActual > puntuacionMaxima) {
             jugadorConPuntuacionMaxima = numeroJugadorActual;
+            puntuacionMaxima = puntosDelJugadorActual;
         }
     }
     return jugadorConPuntuacionMaxima;

@@ -1,17 +1,13 @@
 function iniciar() {
-    var cantidadJugadores = [];
-    var puntaje = new Array(4);
-    var cantidadJugadores = 0;
-    var cantiadadDados = 3;
-    var rondasActual = 0;
-    var lanzamientos = 0;
-    var computadora = 0;
-    var turno = 0;
-
     var cantidadDeRondas = 5;
     var cantidadDeDados = 3;
     var valorMaximoDeDado = 6
     var valorMinimoDeDado = 1;
+
+    document.cantidadDeRondas = cantidadDeRondas;
+    document.cantidadDeDados = cantidadDeDados;
+    document.valorMaximoDeDado = valorMaximoDeDado;
+    document.valorMinimoDeDado = valorMinimoDeDado;
 
     document.jugadores = new Array(0);
 }
@@ -24,6 +20,7 @@ function iniciarPartidaConJugadores(cantidadJugadores) {
     }
     
     document.jugadores = nuevosJugadores;
+    document.rondaActual = 0;
 }
 
 

@@ -8,8 +8,6 @@ function iniciar() {
     document.cantidadDeDados = cantidadDeDados;
     document.valorMaximoDeDado = valorMaximoDeDado;
     document.valorMinimoDeDado = valorMinimoDeDado;
-
-    document.jugadores = new Array(0);
 }
 
 function iniciarPartidaConJugadores(cantidadJugadores) {

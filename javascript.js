@@ -13,7 +13,7 @@ function iniciar() {
     var valorMaximoDeDado = 6
     var valorMinimoDeDado = 1;
 
-    document.jugadores = new Array(0)
+    document.jugadores = new Array(0);
 }
 
 function iniciarPartidaConJugadores(cantidadJugadores) {
@@ -30,16 +30,13 @@ function iniciarPartidaConJugadores(cantidadJugadores) {
 function lanzamientoDeRondaDelJugador(numeroJugador) {
     var numeroDeDados = document.cantidadDeDados;
     var lanzamientosPorRonda = document.cantidadDeLanzamientosPorRonda;
-    var rondaActual = docuemnt.rondaActual;
-
-    var maximoDeDado = document.valorMaximoDeDado;
-    var minimoDeDado = document.valorMinimoDeDado;
+    var rondaActual = document.rondaActual;
 
     var totalPuntosDeRonda = 0;
 
     for (var index = 0; index < lanzamientosPorRonda; index++) {
         for (var index = 0; index < numeroDeDados; index++) {
-            var puntosDeLanzamiento = Math.floor((Math.random() * maximoDeDado) + minimoDeDado);
+            var puntosDeLanzamiento = Math.floor((Math.random() * 6) + 1);
             if ((puntosDeLanzamiento % 2) == 0) {
                 totalPuntosDeRonda += puntosDeLanzamiento;
             }

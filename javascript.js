@@ -27,16 +27,21 @@ function lanzamientoDeRondaDelJugador(numeroJugador) {
     var lanzamientosPorRonda = document.cantidadDeLanzamientosPorRonda;
     var rondaActual = document.rondaActual;
 
+    console.log(rondaActual)
+    console.log(lanzamientosPorRonda)
+    
     var totalPuntosDeRonda = 0;
 
-    for (var index = 0; index < lanzamientosPorRonda; index++) {
-        for (var index = 0; index < numeroDeDados; index++) {
+    for (var lanzamiento = 0; lanzamiento < lanzamientosPorRonda; lanzamiento++) {
+        for (var dado = 0; dado < numeroDeDados; dado++) {
             var puntosDeLanzamiento = Math.floor((Math.random() * 6) + 1);
             if ((puntosDeLanzamiento % 2) == 0) {
                 totalPuntosDeRonda += puntosDeLanzamiento;
             }
         }
     }
+  
+    console.log(totalPuntosDeRonda);
 
     document.jugadores[numeroJugador] += totalPuntosDeRonda;
 }
